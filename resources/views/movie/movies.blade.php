@@ -1,5 +1,4 @@
 <x-layout>
-
     <div class="container-fluid movies">
         <div class="row h-100 justify-content-center">
             <div class="row">

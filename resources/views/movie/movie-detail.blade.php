@@ -1,6 +1,6 @@
 <x-layout>
-
-    <div class="container-fluid header">
+   
+    <div class="container-fluid movies">
         <div class="row h-100 justify-content-center">
             <div class="row">
                 <h2 class="display-5 text-white text-cente text-color">detailgli del film:{{$movie['title']}}</h2>

@@ -40,4 +40,21 @@ class publicController extends Controller
             }
         }
     }
+    public function contacts() {
+      return view('contacts');    
+    }
+    public function contactUs(Request $request){
+       $user = $request->input('user');
+       $user = $request->input('email'); 
+       $user = $request->input('message';) 
+       $userData = compact('user', 'email', message);
+
+       try{
+          Mail::to($email)->send(new contactMail($userData));
+        }catch(Exception $e){
+            return redirect()->route('homepage')->with('emailError', "c'è stato un problema con l'invio della mail.
+            per favore riprova più tard");
+        }
+        return redirect(route('homepage'))->with('emailSent', 'Hai corerattamente inviato una email');
+ }
 }

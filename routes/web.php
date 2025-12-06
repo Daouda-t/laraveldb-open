@@ -26,3 +26,6 @@ Route::get('/contatti', function () {
 Route::get('/movies', [MovieController::class, 'movielist'])->name('movie.list');
 
 Route::get('/movies/detail/{id}', [MovieController::class, 'movieDetail'])->name('movie.detail');
+
+//invio mail//
+Route::post('/contact-us', [publicController::class, 'contactUs'])->name('contactUs');
