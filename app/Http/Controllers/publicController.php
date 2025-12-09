@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -55,7 +56,7 @@ class publicController extends Controller
         $userData = compact('user', 'email', 'message');
 
         try {
-            Mail::to($email)->send(new contactMail($userData));
+            Mail::to($email)->send(new ContactMail($userData));
         } catch (Exception $e) {
             return redirect()->route('homepage')->with('emailError', "c'è stato un problema con l'invio della mail.
             per favore riprova più tard");

@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -16,9 +17,9 @@ class ContactMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($user-contact)
+    public function __construct($user_contact)
     {
-        $this->user-contact = $user-contact;
+        $this->user_contact = $user_contact;
     }
 
     /**
@@ -27,7 +28,7 @@ class ContactMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            form: new Address('noreplay@openone.it', 'No-reply'),
+            from: new Address('noreplay@moviemania.it', 'no-reply'),
             subject: 'Grazie per averci contattato',
         );
     }
