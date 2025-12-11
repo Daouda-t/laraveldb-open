@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use PhpParser\Node\Expr\AssignOp\Concat;
 
-class publicController extends Controller
+class PublicController extends Controller
 {
     public $users = [
         [

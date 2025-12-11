@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\MovieController;
-use App\Http\Controllers\publicController;
+use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |----------------------------------------------
 */
-Route::get('/', [publicController::class, 'homepage'])->name('homepage');
-Route::get('/chi-siamo', [publicController::class, 'aboutUs'])->name('aboutUs');
+Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
+Route::get('/chi-siamo', [PublicController::class, 'aboutUs'])->name('aboutUs');
 
 
-Route::get('/chi-siamo/detail/{name}', [publicController::class, 'aboutUsDetail'])->name('aboutUsDetail');
+Route::get('/chi-siamo/detail/{name}', [PublicController::class, 'aboutUsDetail'])->name('aboutUsDetail');
 
 Route::get('/contatti', function () {
     return view('contacts');
@@ -28,4 +28,4 @@ Route::get('/movies', [MovieController::class, 'movielist'])->name('movie.list')
 Route::get('/movies/detail/{id}', [MovieController::class, 'movieDetail'])->name('movie.detail');
 
 //invio mail//
-Route::post('/contact-us', [publicController::class, 'contactUs'])->name('contactUs');
+Route::post('/contact-us', [PublicController::class, 'contactUs'])->name('contactUs');
