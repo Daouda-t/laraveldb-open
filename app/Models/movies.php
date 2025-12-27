@@ -12,6 +12,7 @@ class movies extends Model
         'title',
         'director',
         'year',
-        'plot'
+        'plot',
+        'img'
     ];
 }
