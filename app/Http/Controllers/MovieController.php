@@ -1,68 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\MovieRequest;
 use App\Models\Movie;
-use App\Models\movies;
-use Illuminate\Http\Request;
+use Illuminate\http\Request;
+
 
 class MovieController extends Controller
 {
-    // public $movies = [
-    //      [
-    //   'id' => '1',
-    //  'title' => 'Incontri ravvicinati del terzo tipo',
-    //  'director' => 's. MoviesIcons',
-    //  'img' => '/media/poster/MovieIcons.jpg.jpg',
-    //  'genres' => 'sci-fi'
-    // ],
-    //[
-    //   'id' => '2',
-    //  'title' => 'immaginidelci',
-    //   'director' => 's. Mendes',
-    //   'img' => '/media/poster/vikings03.jpg',
-    //   'genres' =>
-    //       'Guerra'
-    //],
-    //[
-    //   'id' => '3',
-    //  'title' => 'Quei bravi ragazzi',
-    //  'director' => 'M. ket-har',
-    //  'img' => '/media/poster/ket-har.jpg',
-    // 'genres' =>
-    //     'noir'
-    //],
-    // [
-    //  'id' => '4',
-    // 'title' => 'Barbi',
-    // 'director' => 'G. vikings01',
-    // 'img' => '/media/poster/vikings01.jpg',
-    // 'genres' =>
-    //     'Avventura'
-    //],
-    //[
-    // 'id' => '5',
-    // 'title' => 'lost in translation',
-    // 'director' => 's. vikings02',
-    // 'img' => '/media/poster/vikings02.jpg',
-    // 'genres' =>
-    //     'Drammatico'
-    // ],
-    // ];
-    public function movielist()
+
+    public function index()
     {
-        $movies = movies::all();
-        return view('movie.movies', ['movies' => $movies]);
+        $movies = Movie::all();
+        return view('movie.index', ['movies' => $movies]);
     }
-    // public function movieDetail($id)
-    //  {
-    //    foreach ($this->movies as $movie) {
-    //        if ($id == $movie['id'] {
-    //            return view('movie.moviedetail', ['movie' => $movie]);
-    //         }
-    //     }
-    //  }
 
     public function create()
     {
@@ -71,7 +22,7 @@ class MovieController extends Controller
 
     public function store(MovieRequest $request)
     {
-        $movie = movies::create([
+        $movie = Movie::create([
             'title' => $request->title,
             'director' => $request->director,
             'year' => $request->year,

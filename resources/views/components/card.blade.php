@@ -4,7 +4,7 @@
             {{$title}}"">
     @else
         <img src="{{storage::url($movie->img)}}" class="card-img-top cardImg img-fluid" alt="poster di 
-         '{{$title}}'">
+             '{{$title}}'">
     @endif
     <div class="card-body">
         <h5 class="card-title">{{$title }}</h5>
