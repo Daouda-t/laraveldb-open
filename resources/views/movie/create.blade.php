@@ -32,7 +32,7 @@
                             value="{{ old('year') }}">
                     </div>
                     <div class="mb-3">
-                        <label for="img" class="form-label">Inserisci una location</label>
+                        <label for="img" class="form-label">Inserisci una locandina</label>
                         <input type="file" name="img" class="form-control" id="img" aria-describedby="imgHelp">
                     </div>
                     <div class="mb-3">

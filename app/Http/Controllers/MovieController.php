@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\MovieRequest;
 use App\Models\Movie;
-use Illuminate\http\Request;
+
+use Illuminate\Http\Request;
 
 
 class MovieController extends Controller
@@ -22,12 +24,13 @@ class MovieController extends Controller
 
     public function store(MovieRequest $request)
     {
+
         $movie = Movie::create([
             'title' => $request->title,
             'director' => $request->director,
             'year' => $request->year,
             'plot' => $request->plot,
-            'img' => $request->file('img')->store('public/images')
+            'img' => $request->file('img')->store('img', 'public')
         ]);
 
         return redirect()->route('homepage')->with('successMessage', 'Hai correctamente inserito il tuo film');
