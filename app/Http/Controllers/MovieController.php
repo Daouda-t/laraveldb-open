@@ -10,7 +10,11 @@ use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
-
+    public function movieList()
+    {
+        $movies = Movie::all();
+        return view('movie.movies', ['movies' => $movies]);
+    }
     public function index()
     {
         $movies = Movie::all();
