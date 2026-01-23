@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Movie;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 
