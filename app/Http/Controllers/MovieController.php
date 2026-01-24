@@ -10,10 +10,9 @@ use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
-    public function MovieList()
+    public function_construct()
     {
-        $movies = Movie::all();
-        return view('movie.movies', ['movies' => $movies]);
+        $this->middleware('auth')->except('index');
     }
     public function index()
     {
@@ -29,7 +28,7 @@ class MovieController extends Controller
     public function store(MovieRequest $request)
     {
 
-        $movie = Movie::create([
+        $movie = Movie::create([ 
             'title' => $request->title,
             'director' => $request->director,
             'year' => $request->year,
