@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
-    public function_construct()
+
+    public function _Construct()
     {
         $this->middleware('auth')->except('index');
     }
@@ -28,7 +29,7 @@ class MovieController extends Controller
     public function store(MovieRequest $request)
     {
 
-        $movie = Movie::create([ 
+        $movie = Movie::create([
             'title' => $request->title,
             'director' => $request->director,
             'year' => $request->year,

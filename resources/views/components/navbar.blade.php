@@ -24,7 +24,7 @@
                         I nostri servizi
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('movie.list')}}">tutti i nostri film</a></li>
+                        <li><a class="dropdown-item" href="{{route('movie.index')}}">tutti i nostri film</a></li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route(name: 'movie.create')}}">inserici il film</a>
 
@@ -38,8 +38,9 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="{{ route('logout') }}" onclick="even.proventDefeult(); documente.
-                                    getElementById('form-logout').submit();" class="dropdown-item">logout</a>
+                                <a href="{{ route('logout') }}"
+                                    onclick="even.proventDefeult(); documente.getElementById('form-logout').submit();"
+                                    class="dropdown-item">logout</a>
                                 <form action="{{ route('logout') }}" method="POST" style="display: none;" id="form-logout">
                                     @csrf</form>
                             </li>

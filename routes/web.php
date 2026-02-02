@@ -21,7 +21,7 @@ Route::get('/chi-siamo/detail/{name}', [PublicController::class, 'aboutUsDetail'
 
 Route::get('/contatti', [PublicController::class, 'contacts'])->name('contacts');
 
-Route::get('/movies', [MovieController::class, 'movieList'])->name('movie.list');
+Route::get('/movies', [MovieController::class, 'movieIndex'])->name('movie.index');
 
 Route::get('/movies/detail/{id}', [MovieController::class, 'movieDetail'])->name('movie.detail');
 
@@ -30,4 +30,4 @@ Route::post('/contact-us', [PublicController::class, 'contactUs'])->name('contac
 
 //INSERIMENTO FILM
 Route::get('/movie/create', [MovieController::class, 'create'])->name('movie.create');
-Route::post('/movie/submit', [MovieController::class, 'store'])->name('movie.submit'); 
+Route::post('/movie/submit', [MovieController::class, 'store'])->name('movie.submit');

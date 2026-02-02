@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
-                <form method="post" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">indirizzo email:</label>

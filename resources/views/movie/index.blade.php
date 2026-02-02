@@ -1,4 +1,4 @@
-<x-layoute>
+<x-layout>
     <div class="container-fluid movies">
         <div class="row h-100 justify-content-center pt-5">
             <div class="row pt-5">
@@ -12,4 +12,4 @@
         </div>
     </div>
 
-</x-layoute>
+</x-layout>
