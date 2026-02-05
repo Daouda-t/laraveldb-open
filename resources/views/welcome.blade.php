@@ -2,17 +2,17 @@
     <header>
         <div class="container-fluid header">
             @if (session()->has('emailSent'))
-                <div class="alert alert-success">
+                <div class="alert alert-success pt-5">
                     {{ session('emailSent') }}
                 </div>
             @endif
             @if (session()->has('emailError'))
-                <div class="alert alert-danger">
+                <div class="alert alert-danger pt-5">
                     {{ session('emailSent') }}
                 </div>
             @endif
             @if (session()->has('successMessage'))
-                <div class="alert alert-success">
+                <div class="alert alert-success pt-5">
                     {{  session('successMessage') }}
                 </div>
             @endif

@@ -1,7 +1,8 @@
 <div class="card mb-3" style="width: 18rem;">
     @if(!$movie->img)
         <img src="https://picsum.photos/200/300" class="card-img-top cardImg img-fluid" alt="poster di {{$title}}">
-    @else <img src="{{Storage::url($movie->img) }}" class="card-img-top cardImg img-fluid" alt="poster di {{$title}}">
+    @else
+        <img src="{{Storage::url($movie->img)}}" class="card-img-top cardImg img-fluid" alt="poster di {{$title}}">
     @endif
     <div class="card-body">
         <h5 class="card-title">{{$title }}</h5>

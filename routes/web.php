@@ -14,20 +14,17 @@ use Illuminate\Support\Facades\Route;
 |----------------------------------------------
 */
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
+//chi siamo
 Route::get('/chi-siamo', [PublicController::class, 'aboutUs'])->name('aboutUs');
-
-
 Route::get('/chi-siamo/detail/{name}', [PublicController::class, 'aboutUsDetail'])->name('aboutUsDetail');
 
+//contattaci
 Route::get('/contatti', [PublicController::class, 'contacts'])->name('contacts');
-
-Route::get('/movies', [MovieController::class, 'movieIndex'])->name('movie.index');
-
-Route::get('/movies/detail/{id}', [MovieController::class, 'movieDetail'])->name('movie.detail');
 
 //invio mail//
 Route::post('/contact-us', [PublicController::class, 'contactUs'])->name('contactUs');
 
-//INSERIMENTO FILM
+//CRUD
 Route::get('/movie/create', [MovieController::class, 'create'])->name('movie.create');
 Route::post('/movie/submit', [MovieController::class, 'store'])->name('movie.submit');
+Route::get('/movie/index', [MovieController::class, 'index'])->name('movie.index');
