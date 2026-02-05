@@ -28,3 +28,9 @@ Route::post('/contact-us', [PublicController::class, 'contactUs'])->name('contac
 Route::get('/movie/create', [MovieController::class, 'create'])->name('movie.create');
 Route::post('/movie/submit', [MovieController::class, 'store'])->name('movie.submit');
 Route::get('/movie/index', [MovieController::class, 'index'])->name('movie.index');
+Route::get('/movie/show/{movie}', [MovieController::class, 'show'])->name('movie.show');
+
+Route::get('/movie/edit/{movie}', [MovieController::class, 'edit'])->name('movie.edit');
+Route::put('/movie/update/{movie}', [MovieController::class, 'update'])->name('movie.update');
+
+Route::delete('/movie/delete/{movie}', [MovieController::class, 'destroy'])->name('movie.delete');

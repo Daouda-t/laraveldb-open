@@ -33,4 +33,38 @@ class MovieController extends Controller
         return redirect()->route('homepage')->with('successMessage', 'Hai correctamento inserito il tuo film
         preferito');
     }
+
+    public function show(Movie $movie)
+    {
+        return view('movie.show', compact('movie'));
+    }
+
+    public function edit(Movie $movie)
+    {
+        return view('movie.edit', compact('movie'));
+    }
+
+    public function update(MovieRequest $request, Movie $movie)
+    {
+        $movie->update([
+            'title' => $request->title,
+            'director' => $request->director,
+            'year' => $request->year,
+            'plot' => $request->plot,
+            'img' => $request->file('img')->store('img', 'public/image'),
+        ]);
+        return redirect()->route('homepage', compact('movie'))->with('successMessage', 'Hai correctamento
+        modificato il tuo film preferito');
+    }
+
+    public function destroy(Movie $movie)
+    {
+        $movie->delete();
+        return redirect()->route('homepage')->with('successMessage', 'Hai correctamento eliminato il tuo film
+        preferito');
+    }
 }
+
+
+
+
