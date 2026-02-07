@@ -63,4 +63,9 @@ class PublicController extends Controller
         }
         return redirect(route('homepage'))->with('emailSent', 'Hai corerattamente inviato una email');
     }
+
+    public function profile()
+    {
+        return view('profile');
+    }
 }

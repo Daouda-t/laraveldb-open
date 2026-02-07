@@ -9,13 +9,17 @@
             <div class="col-12 col-md-6">
                 img src="{{ Storage::url($movie->img) }}" alt="Poster di" '{{ $movie->title }}'">
             </div>
-            <div class="row">
+            @auth
+            @if ($movie->user_id == Auth::id())
+            <div class="row justify-content-end">
                 <form action="{{route('movie.delete', compact('movie'))}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger" type="submit" class="btn btn-danger">Elimina il film</button>
                 </form>
             </div>
+            @endif
+            @endauth
         </div>
     </div>
 </x-layout>

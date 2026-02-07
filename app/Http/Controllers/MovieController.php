@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
+
+    public function _construct()
+    {
+        $this->middleware('auth')->except('index');
+    }
     public function index()
     {
         $movies = Movie::all();
@@ -28,7 +33,7 @@ class MovieController extends Controller
             'year' => $request->year,
             'plot' => $request->plot,
             'img' => $request->file('img')->store('img', 'public'),
-
+            'user_id' => Auth::user()->id
         ]);
         return redirect()->route('homepage')->with('successMessage', 'Hai correctamento inserito il tuo film
         preferito');
@@ -41,27 +46,41 @@ class MovieController extends Controller
 
     public function edit(Movie $movie)
     {
+        if ($movie->user_id == Auth::user()->id) {
         return view('movie.edit', compact('movie'));
+        }else{
+            return redirect()->route('homepage')->with('errorMessage', 'Non puoi vedere questa paqina');
+        }
     }
 
     public function update(MovieRequest $request, Movie $movie)
     {
+        if ($movie->user_id == Auth::user()->id) {
         $movie->update([
             'title' => $request->title,
             'director' => $request->director,
             'year' => $request->year,
             'plot' => $request->plot,
             'img' => $request->file('img')->store('img', 'public/image'),
+
         ]);
         return redirect()->route('homepage', compact('movie'))->with('successMessage', 'Hai correctamento
         modificato il tuo film preferito');
     }
+    else{
+        return redirect()->route('homepage')->with('errorMessage', 'Non puoi vedere questa paqina');
+    }
+    }
 
     public function destroy(Movie $movie)
     {
+        if ($movie->user_id == Auth::user()->id) {
         $movie->delete();
         return redirect()->route('homepage')->with('successMessage', 'Hai correctamento eliminato il tuo film
         preferito');
+    } else{
+        return redirect()->route('homepage')->with('errorMessage', 'Non puoi vedere questa paqina');
+    }
     }
 }
 
