@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\MovieRequest;
 use App\Models\Movie;
 
@@ -57,11 +57,11 @@ class MovieController extends Controller
     {
         if ($movie->user_id == Auth::user()->id) {
         $movie->update([
-            'title' => $request->title,
-            'director' => $request->director,
-            'year' => $request->year,
-            'plot' => $request->plot,
-            'img' => $request->file('img')->store('img', 'public/image'),
+            $movie->title => $request->title,
+            $movie->director => $request->director,
+            $movie->year => $request->year,
+            $movie->plot => $request->plot,
+            'img' => $request->file('img')->store('img', 'public'),
 
         ]);
         return redirect()->route('homepage', compact('movie'))->with('successMessage', 'Hai correctamento

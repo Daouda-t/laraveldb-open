@@ -9,6 +9,7 @@
             più</a>
             @auth
             @if ($movie->user_id == Auth::id())
+            
         <a href="{{ route('movie.edit', compact('movie')) }}" class="btn btn-primary">modifica il film</a>
            @endif
          @endauth

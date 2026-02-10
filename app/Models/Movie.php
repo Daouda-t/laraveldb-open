@@ -14,7 +14,7 @@ class Movie extends Model
         'year',
         'plot',
         'img',
-        'user-id'
+        'user_id'
     ];
     public function user()
     {
