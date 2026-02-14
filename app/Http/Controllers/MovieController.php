@@ -6,17 +6,17 @@ use App\Http\Requests\MovieRequest;
 use App\Models\Movie;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Auth\Middleware\Authenticate;
 
 class MovieController extends Controller
 {
 
-    public function _construct()
+public function __construct()
     {
-        $this->middleware('auth')->except('index');
+        $this->middleware('auth')->except(['index', 'show']);
     }
-    public function index()
-    {
+     public function index()
+    {  
         $movies = Movie::all();
         return view('movie.index', compact('movies'));
     }

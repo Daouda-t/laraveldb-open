@@ -37,3 +37,4 @@ Route::delete('/movie/delete/{movie}', [MovieController::class, 'destroy'])->nam
 
 //profilo
 Route::get('/profile', [PublicController::class, 'profile'])->name('user.profile');
+

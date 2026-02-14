@@ -9,7 +9,15 @@
             più</a>
             @auth
             @if ($movie->user_id == Auth::id())
-            
+            @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
         <a href="{{ route('movie.edit', compact('movie')) }}" class="btn btn-primary">modifica il film</a>
            @endif
          @endauth

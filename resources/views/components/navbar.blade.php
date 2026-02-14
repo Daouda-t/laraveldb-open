@@ -38,7 +38,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                        <a href="{{ route('user.profile') }}" class="dropdown-item">profilo personale</a>
+                        <a href="{{ route('user.profile') }}">profilo personale</a>
                             </li>
                             <li>
                                 <a href="{{ route('logout') }}"
