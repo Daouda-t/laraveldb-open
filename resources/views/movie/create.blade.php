@@ -29,8 +29,15 @@
                     <div class="mb-3">
                         <label for="img" class="form-label">Poster:</label>
                         <input type="file" name="img" class="form-control" id="img" aria-describedby="imgHelp">
-                    </div>
+                    </div class="mb-3">
+                      @foreach ($genres as $genre)
+                      <input type="checkbox" id="{{'genrecheck'. $genre->id}}" name="genres[]"
+                       value="{{$genre->id}}">
+                      <label for="{{'genrecheck'. $genre->id}}">{{$genre->name}}</label>
+                      @endforeach
+                    <div>
 
+                    </div>
                     <button type="submit" class="btn btn-primary">Inserisci il tuo film</button>
                 </form>
             </div>

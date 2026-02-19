@@ -24,9 +24,11 @@
                         I nostri servizi
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('movie.index')}}">tutti i nostri film</a></li>
+                        <li><a class="dropdown-item" href="{{route('movie.index')}}">tutti i  film</a></li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route(name: 'movie.create')}}">inserici il film</a>
+                            <a class="nav-link" href="{{route(name: 'movie.create')}}">Inserici il film</a>
+                             <li><a class="dropdown-item" href="{{route('movie.index')}}">Aggiungi una categoria</a></li>
+                             <li><a class="dropdown-item" href="{{route('genre.create')}}">Tutte le categoria</a></li>
 
                     </ul>
                 </li>

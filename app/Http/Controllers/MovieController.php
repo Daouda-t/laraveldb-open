@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\MovieRequest;
 use App\Models\Movie;
-
+use App\Models\Genre;
+use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
-use Illuminate\Auth\Middleware\Authenticate;
+
 
 class MovieController extends Controller
 {
+        public function __construct(
+        protected Middleware $auth,
+    ) {}
 
-public function __construct()
-    {
-        $this->middleware('auth')->except(['index', 'show']);
-    }
      public function index()
     {  
         $movies = Movie::all();
@@ -22,7 +22,8 @@ public function __construct()
     }
     public function create()
     {
-        return view('movie.create');
+        $genres = Genre::all();
+        return view('movie.create', compact('genres'));
     }
 
     public function store(MovieRequest $request)
@@ -35,6 +36,8 @@ public function __construct()
             'img' => $request->file('img')->store('img', 'public'),
             'user_id' => Auth::user()->id
         ]);
+
+        $movie->genres()->attach($request->genres);
         return redirect()->route('homepage')->with('successMessage', 'Hai correctamento inserito il tuo film
         preferito');
     }

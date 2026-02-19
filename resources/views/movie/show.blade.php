@@ -5,6 +5,13 @@
                 <h2>{{ $movie->title }}</h2>
                 <h3>Register: {{ $movie->director }}</h3>
                 <p>{{ $movie->plot }}</p>
+                <ul>
+          @forelse ($movie->genres as $genre)
+          <il>{{$genre->name  }}</il>
+          @empty
+
+          @endforelse  
+        </ul>
             </div>
             <div class="col-12 col-md-6">
                 img src="{{ Storage::url($movie->img) }}" alt="Poster di" '{{ $movie->title }}'">
