@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
 
+
 class Movie extends Model
 {
     use HasFactory;

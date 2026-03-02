@@ -1,21 +1,27 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\MovieRequest;
 use App\Models\Movie;
 use App\Models\Genre;
-use Illuminate\Foundation\Configuration\Middleware;
+
 use Illuminate\Http\Request;
-
-
-class MovieController extends Controller
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controller\Middleware; 
+class MovieController extends Controller implements HasMiddleware
 {
-        public function __construct(
-        protected Middleware $auth,
-    ) {}
 
-     public function index()
+public static function middleware(): array
+{
+   return [
+    //new Middleware('auth', except: ['index']),];
+    'auth'];
+    }
+   
+
+       public function index()
     {  
         $movies = Movie::all();
         return view('movie.index', compact('movies'));
