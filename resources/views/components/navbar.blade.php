@@ -10,26 +10,16 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{route('homepage')}}">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('aboutUs')}}">chi siamo</a>
-
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('contacts')}}">contattaci</a>
-
-                </li>
+                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        I nostri servizi
+                        Tutti i post
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('movie.index')}}">tutti i  film</a></li>
+                        <li><a class="dropdown-item" href="{{ route('posts') }}">tutti i  post</a></li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route(name: 'movie.create')}}">Inserici il film</a>
-                             <li><a class="dropdown-item" href="{{route('movie.index')}}">Aggiungi una categoria</a></li>
-                             <li><a class="dropdown-item" href="{{route('genre.create')}}">Tutte le categoria</a></li>
-
+                            
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -39,9 +29,7 @@
                             ciao, {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu">
-                            <li>
-                        <a href="{{ route('user.profile') }}">profilo personale</a>
-                            </li>
+                           
                             <li>
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('form-logout').submit();"
@@ -65,6 +53,6 @@
 
             </ul>
 
-        </div>
+</div>
     </div>
 </nav>
