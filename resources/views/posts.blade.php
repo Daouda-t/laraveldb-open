@@ -1,5 +1,5 @@
-<layout>
+<x-layout>
     <div class="container">
      <livewire:search-posts>
     </div>
-</layout>
+</x-layout>
